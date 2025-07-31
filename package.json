@@ -1,11 +1,13 @@
 {
   "name": "dashboard",
-  "version": "1.0.0",
-  "description": "desc",
-  "main": "src/dashboard.js",
+  "version": "0.0.02",
+  "description": "Not a working version",
+  "main": "build/dashboard.js",
+  "type": "module",
   "scripts": {
-    "start": "node src/dashboard.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm i && if not exist .env (copy src\\conf\\env.txt .env) else copy src\\conf\\env.txt .env.template && tsc && copy \"src\\conf\\dashboard.md\" \"build\\conf\\dashboard.md\" && node build/dashboard.js",
+    "start": "node build/dashboard.js",
+    "test": "node tests/test.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,19 @@
   "bugs": {
     "url": "https://github.com/JustIIRed/dashboard/issues"
   },
-  "homepage": "https://github.com/JustIIRed/dashboard#readme"
+  "homepage": "https://github.com/JustIIRed/dashboard#readme",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "blessed": "^0.1.81",
+    "chalk": "^5.4.1",
+    "dotenv": "^17.2.1",
+    "marked": "^4.0.12",
+    "marked-terminal": "^5.1.1",
+    "neo-blessed": "^0.2.0",
+    "socket.io-client": "^4.8.1",
+    "x256": "^0.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.1.0"
+  }
 }
